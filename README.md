@@ -6,13 +6,19 @@ multi-view refinement ablations (CNN U-Net and DINOv2 + depth-side branch).
 
 📄 **Read the full paper (Overleaf, read-only):** <https://www.overleaf.com/read/xxqdntwhhstm#e50d81>
 
-### Built With
+[![Synthetic orchard RGB, predicted metric depth, ground truth and trunk mask](https://raw.githubusercontent.com/joses2017smjh/spur-depth-service/master/docs/readme/hero_strip.png)](https://jose-sanchez-portfolio-com.vercel.app/projects/depth-estimation-robotic-pruning/)
 
-[![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.1-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Blender](https://img.shields.io/badge/Blender-4.2.13-F5792A?style=for-the-badge&logo=blender&logoColor=white)](https://www.blender.org/)
-[![DINOv2](https://img.shields.io/badge/DINOv2-ViT--L-5D3FD3?style=for-the-badge)](https://github.com/facebookresearch/dinov2)
-[![Depth%20Anything%20V2](https://img.shields.io/badge/Depth%20Anything-V2-009688?style=for-the-badge)](https://github.com/DepthAnything/Depth-Anything-V2)
+*Synthetic evaluation imagery from the companion depth service; real-orchard accuracy has not been established.*
+
+## Engineering overview
+
+- **Problem:** recover metric depth on thin orchard branches where scale errors affect tool positioning.
+- **Contribution:** synthetic-data generation, monocular fine-tuning, and controlled multi-view RGB-D refinement experiments.
+- **Published result:** three-pair DINOv2 RGB+D refinement reports **0.0445 ± 0.0057 m RMSE** on synthetic validation. The full-tree fine-tuned single-view reference is 0.0550 m; trunk-only numbers use a different evaluation mask.
+- **Stack:** Python 3.10, PyTorch, Blender, Depth Anything V2 and DINOv2.
+- **Reproduction limit:** model classes include Python 3.10 bytecode; other Python versions cannot load them. Weights and the rendered dataset require separate setup. These are research experiments, not a field-validated pruning system.
+
+[Visual case study](https://jose-sanchez-portfolio-com.vercel.app/projects/depth-estimation-robotic-pruning/) · [Inference service](https://github.com/joses2017smjh/spur-depth-service) · [Results](#-results)
 
 ## 📑 Table of Contents
 
@@ -62,8 +68,8 @@ views.
 ## 📘 Setup
 
 ```bash
-git clone https://github.com/joses2017smjh/spur-da2ft-depth-experiments.git
-cd spur-da2ft-depth-experiments
+git clone https://github.com/joses2017smjh/Vision-Based-Metric-Depth-Estimation-for-Robotic-Pruning.git
+cd Vision-Based-Metric-Depth-Estimation-for-Robotic-Pruning
 
 conda create -n spur python=3.10
 conda activate spur
