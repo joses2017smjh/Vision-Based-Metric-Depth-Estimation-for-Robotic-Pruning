@@ -32,7 +32,7 @@ DA2_ROOT="$COMPUTER_VISION_ROOT/depth-anything-v2"
 export PYTHONPATH="${DA2_ROOT}:${DA2_ROOT}/metric_depth${PYTHONPATH:+:$PYTHONPATH}"
 export HF_HOME=/nfs/hpc/share/sanchej7/.cache/huggingface
 export TORCH_HOME=/nfs/hpc/share/sanchej7/.cache/torch
-export WANDB_API_KEY="***REMOVED***"
+# W&B credentials: run `wandb login` once (stored in ~/.netrc) or export WANDB_API_KEY in your own shell.
 export WANDB_DIR=/tmp/sanchej7_tmp
 export WANDB_CACHE_DIR=/tmp/sanchej7_tmp/wandb_cache
 mkdir -p "$WANDB_CACHE_DIR"
